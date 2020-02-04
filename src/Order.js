@@ -4,29 +4,25 @@ export default Order => {
   return (
     <div>
       <div class="field">
-        <label class="label">Name</label>
+        <label class="label">From</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input" />
+          <input class="input" type="text" placeholder="City1" />
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Username</label>
-        <div class="control has-icons-left has-icons-right">
-          <input
-            class="input is-success"
-            type="text"
-            placeholder="Text input"
-            value="bulma"
-          />
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
+        <label class="label">To</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="City2" />
         </div>
-        <p class="help is-success">This username is available</p>
+        <input
+          class="slider is-fullwidth"
+          step="1"
+          min="0"
+          max="100"
+          value="50"
+          type="range"
+        />
       </div>
 
       <div class="field">
