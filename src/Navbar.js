@@ -1,53 +1,81 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default Navbar => {
-  return (
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <Link class="navbar-item" to="/">
-          <h1 className="title is-4">PostAfrica</h1>
-        </Link>
+class Navbar extends Component {
+  constructor(props) {
+    super();
+    this.state = { navbarActive: false };
+  }
 
-        <a
-          href="#"
-          role="button"
-          class="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+  toggleActive() {
+    this.setState({ navbarActive: !this.state.navbarActive });
+  }
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <Link to="/" class="navbar-item">
-            Home
+  render() {
+    return (
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <Link className="navbar-item" to="/">
+            <b>Parcel Delivery IT Solution</b>
           </Link>
-          <Link to="/order" class="navbar-item">
-            Order
-          </Link>
-          <Link to="/trace" class="navbar-item">
-            Track & Trace
-          </Link>
+
+          <a
+            role="button"
+            className={`navbar-burger burger ${
+              this.state.navbarActive ? "is-active" : ""
+            }`}
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+            onClick={() => this.toggleActive()}
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">Log in</a>
+        <div
+          id="navbarBasicExample"
+          className={`navbar-menu ${
+            this.state.navbarActive ? "is-active" : ""
+          }`}
+        >
+          <div className="navbar-start">
+            <Link to="/package-shipping" className="navbar-item">
+              Package Shipping
+            </Link>
+            <Link to="/track-n-trace" className="navbar-item">
+              Track & Trace
+            </Link>
+          </div>
+
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link">Language</a>
+
+                <div className="navbar-dropdown">
+                  <a className="navbar-item is-active">English</a>
+                </div>
+              </div>
+            </div>
+            <div className="navbar-item">
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link">Currency</a>
+
+                <div className="navbar-dropdown">
+                  <a className="navbar-item is-active">US Dollar</a>
+                  <a className="navbar-item">British Pund</a>
+                  <a className="navbar-item">Euro</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-  );
-};
+      </nav>
+    );
+  }
+}
+export default Navbar;
