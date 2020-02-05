@@ -29,15 +29,21 @@ class PackageShipping extends Component {
               <label className="label">Weight</label>
             </div>
             <div className="field-body">
-              <input
-                id="slider"
-                className="slider is-fullwidth"
-                step="1"
-                min="0"
-                max="100"
-                value="40"
-                type="range"
-              />
+              <div className="field is-grouped">
+                <p className="control is-expanded">
+                  <input
+                    id="slider"
+                    className="slider is-fullwidth"
+                    step="1"
+                    min="0"
+                    max="100"
+                    type="range"
+                  />
+                </p>
+                <p className="control">
+                  <span className="button is-dark">50 kg</span>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -48,11 +54,11 @@ class PackageShipping extends Component {
 
             <div className="field-body">
               <div className="field has-addons has-addons-centered">
-                <p class="control">
+                <p className="control">
                   <input className="input" type="text" placeholder="Height" />
                 </p>
-                <p class="control">
-                  <span class="select">
+                <p className="control">
+                  <span className="select">
                     <select>
                       <option>mm</option>
                       <option selected>cm</option>
@@ -62,11 +68,11 @@ class PackageShipping extends Component {
                 </p>
               </div>
               <div className="field has-addons has-addons-centered">
-                <p class="control">
+                <p className="control">
                   <input className="input" type="text" placeholder="Width" />
                 </p>
-                <p class="control">
-                  <span class="select">
+                <p className="control">
+                  <span className="select">
                     <select>
                       <option>mm</option>
                       <option selected>cm</option>
@@ -79,8 +85,8 @@ class PackageShipping extends Component {
                 <p className="control">
                   <input className="input" type="text" placeholder="Length" />
                 </p>
-                <p class="control">
-                  <span class="select">
+                <p className="control">
+                  <span className="select">
                     <select>
                       <option>mm</option>
                       <option selected>cm</option>
@@ -92,12 +98,45 @@ class PackageShipping extends Component {
             </div>
           </div>
 
+          <div className="field is-horizontal">
+            <div className="field-label"></div>
+            <div className="field-body">
+              <div className="columns">
+                <div className="column is-half">
+                  <div className="card is-fullwidth">
+                    <header className="card-header">
+                      <p className="card-header-title">Fast</p>
+                    </header>
+                    <div className="card-content">
+                      <div className="content">
+                        Delivery time: ~ 2 days
+                        <br />
+                        Price: 280 $
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="column is-half">
+                  <div className="card is-fullwidth">
+                    <header className="card-header">
+                      <p className="card-header-title">Cheap</p>
+                    </header>
+                    <div className="card-content">
+                      <div className="content">
+                        Delivery time: ~ 7 days
+                        <br />
+                        Price: 100 $
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="field is-grouped is-grouped-right">
             <p className="control">
-              <a className="button is-primary">Submit</a>
-            </p>
-            <p className="control">
-              <a className="button is-light">Cancel</a>
+              <a className="button is-primary">Order</a>
             </p>
           </div>
         </div>
