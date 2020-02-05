@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class PackageShipping extends Component {
   render() {
@@ -13,13 +14,25 @@ class PackageShipping extends Component {
             </div>
             <div className="field-body">
               <div className="field">
-                <input className="input" type="text" placeholder="City" />
+                <div class="select is-fullwidth">
+                  <select>
+                    <option>Select city</option>
+                    <option>Cairo</option>
+                    <option>Congo</option>
+                  </select>
+                </div>
               </div>
               <div className="field-label is-normal">
                 <label className="label">To</label>
               </div>
               <div className="field-body">
-                <input className="input" type="text" placeholder="City" />
+                <div class="select is-fullwidth">
+                  <select>
+                    <option>Select city</option>
+                    <option>Cairo</option>
+                    <option>Congo</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -98,28 +111,38 @@ class PackageShipping extends Component {
             </div>
           </div>
 
+          <div className="field is-grouped is-grouped-right">
+            <p className="control">
+              <a href className="button is-primary">
+                Find
+              </a>
+            </p>
+          </div>
+
           <div className="field is-horizontal">
             <div className="field-label"></div>
             <div className="field-body">
-              <div className="columns">
+              <div className="container columns is-fullwidth">
                 <div className="column is-half">
-                  <div className="card is-fullwidth">
-                    <header className="card-header">
-                      <p className="card-header-title">Fast</p>
-                    </header>
-                    <div className="card-content">
-                      <div className="content">
-                        Delivery time: ~ 2 days
-                        <br />
-                        Price: 280 $
+                  <Link to="/package-receipt">
+                    <div className="card">
+                      <header className="card-header">
+                        <p className="card-header-title">Fastest</p>
+                      </header>
+                      <div className="card-content">
+                        <div className="content">
+                          Delivery time: ~ 2 days
+                          <br />
+                          Price: 280 $
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
                 <div className="column is-half">
-                  <div className="card is-fullwidth">
+                  <div className="card">
                     <header className="card-header">
-                      <p className="card-header-title">Cheap</p>
+                      <p className="card-header-title">Cheapest</p>
                     </header>
                     <div className="card-content">
                       <div className="content">
@@ -132,12 +155,6 @@ class PackageShipping extends Component {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="field is-grouped is-grouped-right">
-            <p className="control">
-              <a className="button is-primary">Order</a>
-            </p>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
 
 import Navbar from "./Navbar";
 import PackageShipping from "./PackageShipping";
+import PackageReceipt from "./PackageReceipt";
 import TracknTrace from "./TracknTrace";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
       <Switch>
         <Route path="/package-shipping">
           <PackageShipping />
+        </Route>
+        <Route path="/package-receipt">
+          <PackageReceipt />
         </Route>
         <Route path="/track-n-trace">
           <TracknTrace />
