@@ -24,7 +24,7 @@ class TracknTraceFind extends Component {
     console.log("TracknTraceFind", JSON.parse(JSON.stringify(this.state)));
     this.setState({ loading: true, hasResult: false, hasNoResult: false });
     setTimeout(() => {
-      if (Math.random() < 0.2) {
+      if (Math.random() < 0.3) {
         this.setState({ loading: false, hasNoResult: true });
       } else {
         this.setState({ loading: false, hasResult: true });

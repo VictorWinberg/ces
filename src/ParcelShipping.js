@@ -12,7 +12,8 @@ class ParcelShipping extends Component {
       width: "",
       depth: "",
       loading: false,
-      hasResult: false
+      hasResult: false,
+      hasNoResult: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,11 +26,32 @@ class ParcelShipping extends Component {
 
   handleSubmit(event) {
     console.log("ParcelShipping", JSON.parse(JSON.stringify(this.state)));
-    this.setState({ loading: true });
+    this.setState({ loading: true, hasResult: false, hasNoResult: false });
     setTimeout(() => {
-      this.setState({ loading: false, hasResult: true });
+      if (Math.random() < 0.3) {
+        this.setState({ loading: false, hasNoResult: true });
+      } else {
+        this.setState({ loading: false, hasResult: true });
+      }
     }, 500);
     event.preventDefault();
+  }
+
+  renderNoResults() {
+    return (
+      <div className="field is-horizontal animated bounceInRight">
+        <div className="field-label"></div>
+        <div className="field-body">
+          <div className="container columns is-fullwidth">
+            <div className="column">
+              <h4 className="is-size-4">
+                No possible parcel route with given information found
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   renderResults({ cheap, fast }) {
@@ -287,6 +309,7 @@ class ParcelShipping extends Component {
             </p>
           </div>
 
+          {this.state.hasNoResult && this.renderNoResults()}
           {this.state.hasResult &&
             this.renderResults({
               cheap: {
