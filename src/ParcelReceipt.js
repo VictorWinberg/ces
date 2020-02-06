@@ -53,7 +53,7 @@ class ParcelReceipt extends Component {
             <div className="column is-half-desktop is-half-tablet is-full-mobile">
               Size <br />
               <span className="is-size-3">
-                {`${this.state.height} cm x ${this.state.width} cm x ${this.state.depth} cm`}
+                {`${this.state.height} ${this.state.heightUnit} x ${this.state.width} ${this.state.widthUnit} x ${this.state.depth} ${this.state.depthUnit}`}
               </span>
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile">

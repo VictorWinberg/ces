@@ -11,6 +11,9 @@ class ParcelShipping extends Component {
       height: "",
       width: "",
       depth: "",
+      heightUnit: "cm",
+      widthUnit: "cm",
+      depthUnit: "cm",
       isRecordedParcel: false,
       isWeapon: false,
       isLiveAnimal: false,
@@ -27,11 +30,19 @@ class ParcelShipping extends Component {
   }
 
   handleChange({ target }) {
-    this.setState({ [target.name]: target.value });
+    this.setState({
+      [target.name]: target.value,
+      hasResult: false,
+      hasNoResult: false
+    });
   }
 
   handleToggle({ target }) {
-    this.setState({ [target.name]: !this.state[target.name] });
+    this.setState({
+      [target.name]: !this.state[target.name],
+      hasResult: false,
+      hasNoResult: false
+    });
   }
 
   handleSubmit(event) {
@@ -248,7 +259,11 @@ class ParcelShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select defaultValue="cm">
+                    <select
+                      name="heightUnit"
+                      value={this.state.heightUnit}
+                      onChange={this.handleChange}
+                    >
                       <option>mm</option>
                       <option>cm</option>
                       <option>m</option>
@@ -270,7 +285,11 @@ class ParcelShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select defaultValue="cm">
+                    <select
+                      name="widthUnit"
+                      value={this.state.widthUnit}
+                      onChange={this.handleChange}
+                    >
                       <option>mm</option>
                       <option>cm</option>
                       <option>m</option>
@@ -292,7 +311,11 @@ class ParcelShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select defaultValue="cm">
+                    <select
+                      name="depthUnit"
+                      value={this.state.depthUnit}
+                      onChange={this.handleChange}
+                    >
                       <option>mm</option>
                       <option>cm</option>
                       <option>m</option>
