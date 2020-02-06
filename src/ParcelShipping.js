@@ -234,8 +234,8 @@ class ParcelShipping extends Component {
             </div>
 
             <div className="field-body">
-              <div className="field has-addons has-addons-centered">
-                <p className="control">
+              <div className="field has-addons">
+                <p className="control is-expanded">
                   <input
                     name="height"
                     required
@@ -256,8 +256,8 @@ class ParcelShipping extends Component {
                   </span>
                 </p>
               </div>
-              <div className="field has-addons has-addons-centered">
-                <p className="control">
+              <div className="field has-addons">
+                <p className="control is-expanded">
                   <input
                     name="width"
                     required
@@ -278,8 +278,8 @@ class ParcelShipping extends Component {
                   </span>
                 </p>
               </div>
-              <div className="field has-addons has-addons-centered">
-                <p className="control">
+              <div className="field has-addons">
+                <p className="control is-expanded">
                   <input
                     name="depth"
                     required
@@ -318,7 +318,7 @@ class ParcelShipping extends Component {
                     checked={this.state.isRecordedParcel}
                     onChange={this.handleToggle}
                   />
-                  <label htmlFor="isRecordedParcel">IsRecordedParcel</label>
+                  <label htmlFor="isRecordedParcel">Recorded</label>
                 </p>
               </div>
               <div className="field">
@@ -331,7 +331,7 @@ class ParcelShipping extends Component {
                     checked={this.state.isWeapon}
                     onChange={this.handleToggle}
                   />
-                  <label htmlFor="isWeapon">IsWeapon</label>
+                  <label htmlFor="isWeapon">Weapon</label>
                 </p>
               </div>
               <div className="field">
@@ -344,7 +344,7 @@ class ParcelShipping extends Component {
                     checked={this.state.isLiveAnimal}
                     onChange={this.handleToggle}
                   />
-                  <label htmlFor="isLiveAnimal">IsLiveAnimal</label>
+                  <label htmlFor="isLiveAnimal">Live Animal</label>
                 </p>
               </div>
               <div className="field">
@@ -357,7 +357,7 @@ class ParcelShipping extends Component {
                     checked={this.state.isCautious}
                     onChange={this.handleToggle}
                   />
-                  <label htmlFor="isCautious">IsCautious</label>
+                  <label htmlFor="isCautious">Cautious</label>
                 </p>
               </div>
               <div className="field">
@@ -370,7 +370,7 @@ class ParcelShipping extends Component {
                     checked={this.state.isRefrigerated}
                     onChange={this.handleToggle}
                   />
-                  <label htmlFor="isRefrigerated">IsRefrigerated</label>
+                  <label htmlFor="isRefrigerated">Refrigerated</label>
                 </p>
               </div>
             </div>
