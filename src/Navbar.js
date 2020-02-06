@@ -6,6 +6,7 @@ class Navbar extends Component {
   constructor(props) {
     super();
     this.state = { navbarActive: false };
+    console.log(props.location);
   }
 
   toggleActive() {

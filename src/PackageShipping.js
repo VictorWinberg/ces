@@ -9,8 +9,8 @@ class PackageShipping extends Component {
       to: "",
       weight: "",
       height: "",
-      length: "",
       width: "",
+      depth: "",
       loading: false,
       hasResult: false
     };
@@ -218,9 +218,9 @@ class PackageShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select>
+                    <select defaultValue="cm">
                       <option>mm</option>
-                      <option selected>cm</option>
+                      <option>cm</option>
                       <option>m</option>
                     </select>
                   </span>
@@ -240,9 +240,9 @@ class PackageShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select>
+                    <select defaultValue="cm">
                       <option>mm</option>
-                      <option selected>cm</option>
+                      <option>cm</option>
                       <option>m</option>
                     </select>
                   </span>
@@ -262,9 +262,9 @@ class PackageShipping extends Component {
                 </p>
                 <p className="control">
                   <span className="select">
-                    <select>
+                    <select defaultValue="cm">
                       <option>mm</option>
-                      <option selected>cm</option>
+                      <option>cm</option>
                       <option>m</option>
                     </select>
                   </span>
