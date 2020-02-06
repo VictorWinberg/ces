@@ -19,10 +19,9 @@ function App() {
         <Route path="/package-shipping" component={PackageShipping} />
         <Route path="/package-receipt" component={PackageReceipt} />
         <Route path="/track-n-trace" component={TracknTrace} />
-        <Route exact path="/">
+        <Route path="*">
           <Redirect to="/package-shipping" />
         </Route>
-        <Route path="*">Not found</Route>
       </Switch>
     </Router>
   );
