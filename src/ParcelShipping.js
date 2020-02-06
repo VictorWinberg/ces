@@ -251,7 +251,7 @@ class ParcelShipping extends Component {
                     name="height"
                     required
                     className="input"
-                    type="text"
+                    type="number"
                     placeholder="Height"
                     value={this.state.height}
                     onChange={this.handleChange}
@@ -277,7 +277,7 @@ class ParcelShipping extends Component {
                     name="width"
                     required
                     className="input"
-                    type="text"
+                    type="number"
                     placeholder="Width"
                     value={this.state.width}
                     onChange={this.handleChange}
@@ -303,7 +303,7 @@ class ParcelShipping extends Component {
                     name="depth"
                     required
                     className="input"
-                    type="text"
+                    type="number"
                     placeholder="Depth"
                     value={this.state.depth}
                     onChange={this.handleChange}
