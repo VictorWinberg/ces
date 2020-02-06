@@ -94,7 +94,11 @@ class ParcelReceipt extends Component {
             <em>Date {new Date().toLocaleString()}</em>
           </div>
 
-          <h4 className="is-size-4">Labels</h4>
+          {(this.state.isRecordedParcel ||
+            this.state.isWeapon ||
+            this.state.isLiveAnimal ||
+            this.state.isCautious ||
+            this.state.isRefrigerated) && <h4 className="is-size-4">Labels</h4>}
           <div className="tile is-ancestor">
             {this.state.isRecordedParcel &&
               this.renderOption({
