@@ -65,12 +65,12 @@ class TracknTraceFind extends Component {
               >
                 <div className="card has-text-centered">
                   <div className="card-content">
-                    <div class="card-image" style={{ paddingTop: "2rem" }}>
+                    <div className="card-image" style={{ paddingTop: "2rem" }}>
                       <QRCode value="https://victorwinberg.github.io" />
                     </div>
-                    <div class="card-content">
-                      <p class="title is-4">{this.state.id}</p>
-                      <p class="subtitle is-6">Tracking Id</p>
+                    <div className="card-content">
+                      <p className="title is-4">{this.state.id}</p>
+                      <p className="subtitle is-6">Tracking Id</p>
                     </div>
                   </div>
                 </div>

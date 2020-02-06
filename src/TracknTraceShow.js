@@ -19,19 +19,19 @@ class TracknTraceShow extends Component {
           <h4 className="is-size-4">Parcel</h4>
           <div className="columns is-multiline is-mobile">
             <div className="column is-half-tablet is-full-mobile">
-              <div class="card has-text-centered">
-                <div class="card-image" style={{ paddingTop: "2rem" }}>
+              <div className="card has-text-centered">
+                <div className="card-image" style={{ paddingTop: "2rem" }}>
                   <a
-                    href={`http://localhost:3000/track-n-trace/${this.state.id}`}
+                    href={`${window.location.origin}/track-n-trace/${this.state.id}`}
                   >
                     <QRCode
-                      value={`http://localhost:3000/track-n-trace/${this.state.id}`}
+                      value={`${window.location.origin}/track-n-trace/${this.state.id}`}
                     />
                   </a>
                 </div>
-                <div class="card-content">
-                  <p class="title is-4">{this.state.id}</p>
-                  <p class="subtitle is-6">Tracking Id</p>
+                <div className="card-content">
+                  <p className="title is-4">{this.state.id}</p>
+                  <p className="subtitle is-6">Tracking Id</p>
                 </div>
               </div>
             </div>

@@ -55,10 +55,10 @@ class ParcelReceipt extends Component {
 
           <div className="has-text-centered">
             <a
-              href={`http://localhost:3000/track-n-trace/${this.state.trackingId}`}
+              href={`${window.location.origin}/track-n-trace/${this.state.trackingId}`}
             >
               <QRCode
-                value={`http://localhost:3000/track-n-trace/${this.state.trackingId}`}
+                value={`${window.location.origin}/track-n-trace/${this.state.trackingId}`}
               />
             </a>
             <br />
