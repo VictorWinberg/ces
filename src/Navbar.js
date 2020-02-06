@@ -43,10 +43,18 @@ class Navbar extends Component {
           }`}
         >
           <div className="navbar-start">
-            <Link to="/parcel-shipping" className="navbar-item is-tab">
+            <Link
+              to="/parcel-shipping"
+              className="navbar-item is-tab"
+              onClick={() => this.toggleActive()}
+            >
               Parcel Shipping
             </Link>
-            <Link to="/track-n-trace" className="navbar-item is-tab">
+            <Link
+              to="/track-n-trace"
+              className="navbar-item is-tab"
+              onClick={() => this.toggleActive()}
+            >
               Track &amp; Trace
             </Link>
           </div>
@@ -57,7 +65,12 @@ class Navbar extends Component {
                 <a className="navbar-link">Language</a>
 
                 <div className="navbar-dropdown">
-                  <a className="navbar-item is-active">English</a>
+                  <a
+                    className="navbar-item is-active"
+                    onClick={() => this.toggleActive()}
+                  >
+                    English
+                  </a>
                 </div>
               </div>
             </div>
@@ -66,28 +79,60 @@ class Navbar extends Component {
                 <a className="navbar-link">Currency</a>
 
                 <div className="navbar-dropdown">
-                  <Link to="?currency=usd" className="navbar-item">
+                  <Link
+                    to="?currency=usd"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     US Dollar
                   </Link>
-                  <Link to="?currency=gbp" className="navbar-item">
+                  <Link
+                    to="?currency=gbp"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     British Pund
                   </Link>
-                  <Link to="?currency=eur" className="navbar-item">
+                  <Link
+                    to="?currency=eur"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Euro
                   </Link>
-                  <Link to="?currency=dkk" className="navbar-item">
+                  <Link
+                    to="?currency=dkk"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Danish Krone
                   </Link>
-                  <Link to="?currency=sek" className="navbar-item">
+                  <Link
+                    to="?currency=sek"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Swedish Krone
                   </Link>
-                  <Link to="?currency=nok" className="navbar-item">
+                  <Link
+                    to="?currency=nok"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Norwegian Krone
                   </Link>
-                  <Link to="?currency=aed" className="navbar-item">
+                  <Link
+                    to="?currency=aed"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Emirati Dirhams
                   </Link>
-                  <Link to="?currency=aud" className="navbar-item">
+                  <Link
+                    to="?currency=aud"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
                     Australian Dollar
                   </Link>
                 </div>

@@ -49,7 +49,11 @@ class ParcelShipping extends Component {
     console.log("ParcelShipping", JSON.parse(JSON.stringify(this.state)));
     this.setState({ loading: true, hasResult: false, hasNoResult: false });
     setTimeout(() => {
-      if (Math.random() < 0.3) {
+      const notPossible = ["Stockholm", "Copenhagen"];
+      if (
+        notPossible.includes(this.state.from) ||
+        notPossible.includes(this.state.to)
+      ) {
         this.setState({ loading: false, hasNoResult: true });
       } else {
         this.setState({ loading: false, hasResult: true });
@@ -155,6 +159,7 @@ class ParcelShipping extends Component {
                     <option>Cairo</option>
                     <option>Cape</option>
                     <option>Casablanca</option>
+                    <option>Copenhagen</option>
                     <option>Dar</option>
                     <option>Douala</option>
                     <option>Giza</option>
@@ -165,6 +170,7 @@ class ParcelShipping extends Component {
                     <option>Lagos</option>
                     <option>Luanda</option>
                     <option>Nairobi</option>
+                    <option>Stockholm</option>
                   </select>
                 </div>
               </div>
@@ -187,6 +193,7 @@ class ParcelShipping extends Component {
                     <option>Cairo</option>
                     <option>Cape</option>
                     <option>Casablanca</option>
+                    <option>Copenhagen</option>
                     <option>Dar</option>
                     <option>Douala</option>
                     <option>Giza</option>
@@ -197,6 +204,7 @@ class ParcelShipping extends Component {
                     <option>Lagos</option>
                     <option>Luanda</option>
                     <option>Nairobi</option>
+                    <option>Stockholm</option>
                   </select>
                 </div>
               </div>
@@ -252,6 +260,7 @@ class ParcelShipping extends Component {
                     required
                     className="input"
                     type="number"
+                    min="0"
                     placeholder="Height"
                     value={this.state.height}
                     onChange={this.handleChange}
@@ -278,6 +287,7 @@ class ParcelShipping extends Component {
                     required
                     className="input"
                     type="number"
+                    min="0"
                     placeholder="Width"
                     value={this.state.width}
                     onChange={this.handleChange}
@@ -304,6 +314,7 @@ class ParcelShipping extends Component {
                     required
                     className="input"
                     type="number"
+                    min="0"
                     placeholder="Depth"
                     value={this.state.depth}
                     onChange={this.handleChange}

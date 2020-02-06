@@ -17,14 +17,19 @@ class TracknTraceFind extends Component {
   }
 
   handleChange({ target }) {
-    this.setState({ [target.name]: target.value });
+    this.setState({
+      [target.name]: target.value,
+      hasResult: false,
+      hasNoResult: false
+    });
   }
 
   handleSubmit(event) {
     console.log("TracknTraceFind", JSON.parse(JSON.stringify(this.state)));
     this.setState({ loading: true, hasResult: false, hasNoResult: false });
     setTimeout(() => {
-      if (Math.random() < 0.3) {
+      const notPossible = ["error", "42", "donald trump", "jan zubac"];
+      if (notPossible.includes(this.state.id.toLowerCase())) {
         this.setState({ loading: false, hasNoResult: true });
       } else {
         this.setState({ loading: false, hasResult: true });
