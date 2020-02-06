@@ -11,6 +11,7 @@ class ParcelReceipt extends Component {
   render() {
     return (
       <div className="hero-body" ref={el => (this.printComponentRef = el)}>
+        <style>{`@media print {.is-hidden-print {display: none !important;}}`}</style>
         <div className="container">
           <h1 className="title is-size-1-tablet is-size-3-mobile has-text-centered-mobile">
             Parcel Receipt
@@ -44,11 +45,11 @@ class ParcelReceipt extends Component {
               To <br />
               <span className="is-size-3">{this.state.to}</span>
             </div>
-            <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Time <br />
               <span className="is-size-3">{this.state.time}</span>
             </div>
-            <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile">
+            <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Price <br />
               <span className="is-size-3">{this.state.price}</span>
             </div>
@@ -63,11 +64,11 @@ class ParcelReceipt extends Component {
               />
             </a>
             <br />
-            <em>Date 2020-02-05</em>
+            <em>Date {new Date().toLocaleString()}</em>
           </div>
 
-          <h4 className="is-size-4">Route</h4>
-          <table className="table is-size-4">
+          <h4 className="is-size-4 is-hidden-print">Route</h4>
+          <table className="table is-size-4 is-hidden-print">
             <tbody>
               <tr>
                 <td className="has-text-weight-light">Truck </td>
@@ -90,7 +91,7 @@ class ParcelReceipt extends Component {
             </tbody>
           </table>
 
-          <div className="field is-grouped is-grouped-right">
+          <div className="field is-grouped is-grouped-right is-hidden-print">
             <p className="control">
               <ReactToPrint
                 trigger={() => (

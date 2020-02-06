@@ -296,6 +296,15 @@ class ParcelShipping extends Component {
             </div>
           </div>
 
+          <div class="field">
+            <p class="control">
+              <div class="b-checkbox is-warning">
+                <input id="checkbox" class="styled" checked type="checkbox" />
+                <label for="checkbox">Is Warning</label>
+              </div>
+            </p>
+          </div>
+
           <div className="field is-grouped is-grouped-right">
             <p className="control">
               <button

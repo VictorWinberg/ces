@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bulma/css/bulma.min.css";
 import "bulma-slider/dist/css/bulma-slider.min.css";
+import "cool-checkboxes-for-bulma.io/dist/css/bulma-radio-checkbox.min.css";
 import "animate.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
