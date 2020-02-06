@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "./index.scss";
+import "bulma/css/bulma.min.css";
+import "bulma-slider/dist/css/bulma-slider.min.css";
 import "animate.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
