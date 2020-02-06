@@ -16,9 +16,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
+          <span className="navbar-item">
             <b>Parcel Delivery IT Solution</b>
-          </Link>
+          </span>
 
           <a
             role="button"
