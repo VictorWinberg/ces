@@ -98,7 +98,7 @@ class PackageShipping extends Component {
             </div>
             <div className="field-body">
               <div className="field">
-                <div class="select is-fullwidth">
+                <div className="select is-fullwidth">
                   <select
                     name="from"
                     required
@@ -106,8 +106,23 @@ class PackageShipping extends Component {
                     onChange={this.handleChange}
                   >
                     <option value="">Select city</option>
+                    <option>Abidjan</option>
+                    <option>Accra</option>
+                    <option>Alexandria</option>
+                    <option>Algiers</option>
                     <option>Cairo</option>
-                    <option>Congo</option>
+                    <option>Cape</option>
+                    <option>Casablanca</option>
+                    <option>Dar</option>
+                    <option>Douala</option>
+                    <option>Giza</option>
+                    <option>Johannesburg</option>
+                    <option>Kano</option>
+                    <option>Kinshasa</option>
+                    <option>Kumasi</option>
+                    <option>Lagos</option>
+                    <option>Luanda</option>
+                    <option>Nairobi</option>
                   </select>
                 </div>
               </div>
@@ -115,7 +130,7 @@ class PackageShipping extends Component {
                 <label className="label">To</label>
               </div>
               <div className="field-body">
-                <div class="select is-fullwidth">
+                <div className="select is-fullwidth">
                   <select
                     name="to"
                     required
@@ -123,8 +138,23 @@ class PackageShipping extends Component {
                     onChange={this.handleChange}
                   >
                     <option value="">Select city</option>
+                    <option>Abidjan</option>
+                    <option>Accra</option>
+                    <option>Alexandria</option>
+                    <option>Algiers</option>
                     <option>Cairo</option>
-                    <option>Congo</option>
+                    <option>Cape</option>
+                    <option>Casablanca</option>
+                    <option>Dar</option>
+                    <option>Douala</option>
+                    <option>Giza</option>
+                    <option>Johannesburg</option>
+                    <option>Kano</option>
+                    <option>Kinshasa</option>
+                    <option>Kumasi</option>
+                    <option>Lagos</option>
+                    <option>Luanda</option>
+                    <option>Nairobi</option>
                   </select>
                 </div>
               </div>
@@ -162,7 +192,7 @@ class PackageShipping extends Component {
                   />
                 </p>
                 <p className="control">
-                  <span class="button is-white">kg</span>
+                  <span className="button is-white">kg</span>
                 </p>
               </div>
             </div>

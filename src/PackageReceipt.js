@@ -61,23 +61,23 @@ class Packag extends Component {
           </div>
 
           <h4 className="is-size-4">Route</h4>
-          <table class="table is-size-4">
+          <table className="table is-size-4">
             <tbody>
               <tr>
                 <td className="has-text-weight-light">Truck </td>
                 <td>{this.state.from}</td>
                 <td className="has-text-weight-light">-></td>
-                <td>Egypt</td>
+                <td>Kisumu</td>
               </tr>
               <tr>
                 <td className="has-text-weight-light">Flight </td>
-                <td>Egypt</td>
+                <td>Kisumu</td>
                 <td className="has-text-weight-light">-></td>
-                <td>Zambia</td>
+                <td>Dakar</td>
               </tr>
               <tr>
                 <td className="has-text-weight-light">Boat </td>
-                <td>Zambia</td>
+                <td>Dakar</td>
                 <td className="has-text-weight-light">-></td>
                 <td>{this.state.to}</td>
               </tr>
