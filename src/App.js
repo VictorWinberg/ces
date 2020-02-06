@@ -16,15 +16,9 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/package-shipping">
-          <PackageShipping />
-        </Route>
-        <Route path="/package-receipt">
-          <PackageReceipt />
-        </Route>
-        <Route path="/track-n-trace">
-          <TracknTrace />
-        </Route>
+        <Route path="/package-shipping" component={PackageShipping} />
+        <Route path="/package-receipt" component={PackageReceipt} />
+        <Route path="/track-n-trace" component={TracknTrace} />
         <Route exact path="/">
           <Redirect to="/package-shipping" />
         </Route>
