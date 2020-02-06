@@ -11,17 +11,27 @@ class ParcelShipping extends Component {
       height: "",
       width: "",
       depth: "",
+      isRecordedParcel: false,
+      isWeapon: false,
+      isLiveAnimal: false,
+      isCautious: false,
+      isRefrigerated: false,
       loading: false,
       hasResult: false,
       hasNoResult: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange({ target }) {
     this.setState({ [target.name]: target.value });
+  }
+
+  handleToggle({ target }) {
+    this.setState({ [target.name]: !this.state[target.name] });
   }
 
   handleSubmit(event) {
@@ -113,7 +123,6 @@ class ParcelShipping extends Component {
       <div className="hero-body">
         <form className="container" onSubmit={this.handleSubmit}>
           <h1 className="title is-1">Parcel Shipping</h1>
-
           <div className="field is-horizontal">
             <div className="field-label is-normal">
               <label className="label">From</label>
@@ -182,7 +191,6 @@ class ParcelShipping extends Component {
               </div>
             </div>
           </div>
-
           <div className="field is-horizontal">
             <div className="field-label is-normal">
               <label className="label">Weight</label>
@@ -220,7 +228,6 @@ class ParcelShipping extends Component {
               </div>
             </div>
           </div>
-
           <div className="field is-horizontal">
             <div className="field-label is-normal">
               <label className="label">Size</label>
@@ -295,14 +302,78 @@ class ParcelShipping extends Component {
               </div>
             </div>
           </div>
+          <div className="field is-horizontal">
+            <div className="field-label">
+              <label className="label">Options</label>
+            </div>
 
-          <div class="field">
-            <p class="control">
-              <div class="b-checkbox is-warning">
-                <input id="checkbox" class="styled" checked type="checkbox" />
-                <label for="checkbox">Is Warning</label>
+            <div className="field-body">
+              <div className="field">
+                <p className="control b-checkbox">
+                  <input
+                    className="is-checkradio"
+                    id="isRecordedParcel"
+                    type="checkbox"
+                    name="isRecordedParcel"
+                    checked={this.state.isRecordedParcel}
+                    onChange={this.handleToggle}
+                  />
+                  <label htmlFor="isRecordedParcel">IsRecordedParcel</label>
+                </p>
               </div>
-            </p>
+              <div className="field">
+                <p className="control b-checkbox">
+                  <input
+                    className="is-checkradio"
+                    id="isWeapon"
+                    type="checkbox"
+                    name="isWeapon"
+                    checked={this.state.isWeapon}
+                    onChange={this.handleToggle}
+                  />
+                  <label htmlFor="isWeapon">IsWeapon</label>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control b-checkbox">
+                  <input
+                    className="is-checkradio"
+                    id="isLiveAnimal"
+                    type="checkbox"
+                    name="isLiveAnimal"
+                    checked={this.state.isLiveAnimal}
+                    onChange={this.handleToggle}
+                  />
+                  <label htmlFor="isLiveAnimal">IsLiveAnimal</label>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control b-checkbox">
+                  <input
+                    className="is-checkradio"
+                    id="isCautious"
+                    type="checkbox"
+                    name="isCautious"
+                    checked={this.state.isCautious}
+                    onChange={this.handleToggle}
+                  />
+                  <label htmlFor="isCautious">IsCautious</label>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control b-checkbox">
+                  <input
+                    className="is-checkradio"
+                    id="isRefrigerated"
+                    type="checkbox"
+                    name="isRefrigerated"
+                    checked={this.state.isRefrigerated}
+                    onChange={this.handleToggle}
+                  />
+                  <label htmlFor="isRefrigerated">IsRefrigerated</label>
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="field is-grouped is-grouped-right">
@@ -317,7 +388,6 @@ class ParcelShipping extends Component {
               </button>
             </p>
           </div>
-
           {this.state.hasNoResult && this.renderNoResults()}
           {this.state.hasResult &&
             this.renderResults({
