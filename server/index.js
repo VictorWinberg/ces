@@ -54,15 +54,46 @@ app.get("/api/cities", async (req, res) => {
     { id: 32, longitude: 12, latitude: 8, name: "KAP GUARDAFUI" }
   ];
   try {
-    const response = await fetch("//wa-eitpl.azurewebsites.net/api/cities");
+    const response = await fetch(
+      "https://wa-eitpl.azurewebsites.net/api/cities",
+      {
+        timeout: 1000
+      }
+    );
     const json = await response.json();
     if (Array.isArray(json)) {
       cities = json;
     }
   } catch (error) {
-    // no op
+    console.error(error);
   }
   res.send(cities);
+});
+
+app.get("/api/routes", async (req, res) => {
+  let routes = [];
+
+  try {
+    const response = await fetch(
+      "https://wa-eitpl.azurewebsites.net/api/routes",
+      {
+        method: "post",
+        body: JSON.stringify({}),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        timeout: 1000
+      }
+    );
+    const json = await response.json();
+
+    if (json.routes && json.routes.length > 0) {
+      routes = json.routes;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  res.send(routes);
 });
 
 app.get("*", (req, res) => {
