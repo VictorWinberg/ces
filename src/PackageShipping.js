@@ -119,7 +119,7 @@ class PackageShipping extends Component {
             </p>
           </div>
 
-          <div className="field is-horizontal">
+          <div className="field is-horizontal animated bounceInRight">
             <div className="field-label"></div>
             <div className="field-body">
               <div className="container columns is-fullwidth">
