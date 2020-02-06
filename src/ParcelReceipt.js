@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QRCode from "qrcode.react";
+import ReactToPrint from "react-to-print";
 
 class ParcelReceipt extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ParcelReceipt extends Component {
 
   render() {
     return (
-      <div className="hero-body">
+      <div className="hero-body" ref={el => (this.printComponentRef = el)}>
         <div className="container">
           <h1 className="title is-size-1-tablet is-size-3-mobile has-text-centered-mobile">
             Parcel Receipt
@@ -88,6 +89,19 @@ class ParcelReceipt extends Component {
               </tr>
             </tbody>
           </table>
+
+          <div className="field is-grouped is-grouped-right">
+            <p className="control">
+              <ReactToPrint
+                trigger={() => (
+                  <button className="button is-primary" type="submit">
+                    Print
+                  </button>
+                )}
+                content={() => this.printComponentRef}
+              />
+            </p>
+          </div>
         </div>
       </div>
     );
