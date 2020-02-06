@@ -28,7 +28,7 @@ class PackageShipping extends Component {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, hasResult: true });
-    }, 50);
+    }, 500);
     event.preventDefault();
   }
 
