@@ -8,6 +8,17 @@ class ParcelReceipt extends Component {
     this.state = props.location.state || {};
   }
 
+  renderOption({ title, subtitle, classType }) {
+    return (
+      <div className="tile is-parent">
+        <article className={`tile is-child notification ${classType}`}>
+          <p className="title">{title}</p>
+          <p className="subtitle">{subtitle}</p>
+        </article>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="hero-body" ref={el => (this.printComponentRef = el)}>
@@ -65,6 +76,40 @@ class ParcelReceipt extends Component {
             </a>
             <br />
             <em>Date {new Date().toLocaleString()}</em>
+          </div>
+
+          <h4 className="is-size-4">Labels</h4>
+          <div className="tile is-ancestor">
+            {this.state.isRecordedParcel &&
+              this.renderOption({
+                title: "RECORDED PARCEL",
+                subtitle: "This parcel should be recorded at destination.",
+                classType: "is-primary"
+              })}
+            {this.state.isWeapon &&
+              this.renderOption({
+                title: "WEAPON",
+                subtitle: "This parcel contains weapon(s).",
+                classType: "is-danger"
+              })}
+            {this.state.isLiveAnimal &&
+              this.renderOption({
+                title: "LIVE ANIMAL",
+                subtitle: "This parcel contains live animal(s).",
+                classType: "is-danger"
+              })}
+            {this.state.isCautious &&
+              this.renderOption({
+                title: "CAUTIOUS",
+                subtitle: "This is a cautious parcel.",
+                classType: "is-warning"
+              })}
+            {this.state.isRefrigerated &&
+              this.renderOption({
+                title: "REFRIGERATED",
+                subtitle: "Keep parcel refrigerated.",
+                classType: "is-info"
+              })}
           </div>
 
           <h4 className="is-size-4 is-hidden-print">Route</h4>
