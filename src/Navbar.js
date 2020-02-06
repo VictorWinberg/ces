@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = { navbarActive: false };
-    console.log(props.location);
   }
 
   toggleActive() {
@@ -28,7 +27,7 @@ class Navbar extends Component {
             }`}
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarBasicExample"
+            data-target="navbar"
             onClick={() => this.toggleActive()}
           >
             <span aria-hidden="true"></span>
@@ -38,17 +37,17 @@ class Navbar extends Component {
         </div>
 
         <div
-          id="navbarBasicExample"
+          id="navbar"
           className={`navbar-menu ${
             this.state.navbarActive ? "is-active" : ""
           }`}
         >
           <div className="navbar-start">
-            <Link to="/package-shipping" className="navbar-item">
-              Package Shipping
+            <Link to="/parcel-shipping" className="navbar-item is-tab">
+              Parcel Shipping
             </Link>
-            <Link to="/track-n-trace" className="navbar-item">
-              Track & Trace
+            <Link to="/track-n-trace" className="navbar-item is-tab">
+              Track &amp; Trace
             </Link>
           </div>
 

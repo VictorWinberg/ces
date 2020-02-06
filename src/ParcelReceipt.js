@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import QRCode from "qrcode.react";
 
-class Packag extends Component {
+class ParcelReceipt extends Component {
   constructor(props) {
     super(props);
     this.state = props.location.state || {};
@@ -12,8 +12,9 @@ class Packag extends Component {
       <div className="hero-body">
         <div className="container">
           <h1 className="title is-size-1-tablet is-size-3-mobile has-text-centered-mobile">
-            Package Receipt
+            Parcel Receipt
           </h1>
+
           <h4 className="is-size-4">Parcel</h4>
           <div className="columns has-text-centered is-multiline is-mobile">
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile">
@@ -53,8 +54,12 @@ class Packag extends Component {
           </div>
 
           <div className="has-text-centered">
-            <a href="http://facebook.github.io/react/">
-              <QRCode value="http://facebook.github.io/react/" />
+            <a
+              href={`http://localhost:3000/track-n-trace/${this.state.trackingId}`}
+            >
+              <QRCode
+                value={`http://localhost:3000/track-n-trace/${this.state.trackingId}`}
+              />
             </a>
             <br />
             <em>Date 2020-02-05</em>
@@ -88,4 +93,4 @@ class Packag extends Component {
     );
   }
 }
-export default Packag;
+export default ParcelReceipt;

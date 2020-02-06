@@ -7,20 +7,22 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./Navbar";
-import PackageShipping from "./PackageShipping";
-import PackageReceipt from "./PackageReceipt";
-import TracknTrace from "./TracknTrace";
+import ParcelShipping from "./ParcelShipping";
+import ParcelReceipt from "./ParcelReceipt";
+import TracknTraceShow from "./TracknTraceShow";
+import TracknTraceFind from "./TracknTraceFind";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/package-shipping" component={PackageShipping} />
-        <Route path="/package-receipt" component={PackageReceipt} />
-        <Route path="/track-n-trace" component={TracknTrace} />
+        <Route path="/parcel-shipping" component={ParcelShipping} />
+        <Route path="/parcel-receipt" component={ParcelReceipt} />
+        <Route path="/track-n-trace/:id" component={TracknTraceShow} />
+        <Route path="/track-n-trace" component={TracknTraceFind} />
         <Route path="*">
-          <Redirect to="/package-shipping" />
+          <Redirect to="/parcel-shipping" />
         </Route>
       </Switch>
     </Router>

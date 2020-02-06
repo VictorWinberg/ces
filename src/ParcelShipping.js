@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class PackageShipping extends Component {
+class ParcelShipping extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class PackageShipping extends Component {
   }
 
   handleSubmit(event) {
-    console.log(JSON.parse(JSON.stringify(this.state)));
+    console.log("ParcelShipping", JSON.parse(JSON.stringify(this.state)));
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, hasResult: true });
@@ -41,7 +41,7 @@ class PackageShipping extends Component {
             <div className="column is-half">
               <Link
                 to={{
-                  pathname: "/package-receipt",
+                  pathname: "/parcel-receipt",
                   state: { ...this.state, ...fast }
                 }}
               >
@@ -62,7 +62,7 @@ class PackageShipping extends Component {
             <div className="column is-half">
               <Link
                 to={{
-                  pathname: "/package-receipt",
+                  pathname: "/parcel-receipt",
                   state: { ...this.state, ...cheap }
                 }}
               >
@@ -90,7 +90,7 @@ class PackageShipping extends Component {
     return (
       <div className="hero-body">
         <form className="container" onSubmit={this.handleSubmit}>
-          <h1 className="title is-1">Package Shipping</h1>
+          <h1 className="title is-1">Parcel Shipping</h1>
 
           <div className="field is-horizontal">
             <div className="field-label is-normal">
@@ -186,6 +186,7 @@ class PackageShipping extends Component {
                     required
                     type="text"
                     className="button is-dark"
+                    placeholder="N/A"
                     style={{ maxWidth: "5rem" }}
                     value={this.state.weight}
                     onChange={this.handleChange}
@@ -304,4 +305,4 @@ class PackageShipping extends Component {
     );
   }
 }
-export default PackageShipping;
+export default ParcelShipping;
