@@ -66,9 +66,30 @@ class Navbar extends Component {
                 <a className="navbar-link">Currency</a>
 
                 <div className="navbar-dropdown">
-                  <a className="navbar-item is-active">US Dollar</a>
-                  <a className="navbar-item">British Pund</a>
-                  <a className="navbar-item">Euro</a>
+                  <Link to="?currency=usd" className="navbar-item">
+                    US Dollar
+                  </Link>
+                  <Link to="?currency=gbp" className="navbar-item">
+                    British Pund
+                  </Link>
+                  <Link to="?currency=eur" className="navbar-item">
+                    Euro
+                  </Link>
+                  <Link to="?currency=dkk" className="navbar-item">
+                    Danish Krone
+                  </Link>
+                  <Link to="?currency=sek" className="navbar-item">
+                    Swedish Krone
+                  </Link>
+                  <Link to="?currency=nok" className="navbar-item">
+                    Norwegian Krone
+                  </Link>
+                  <Link to="?currency=aed" className="navbar-item">
+                    Emirati Dirhams
+                  </Link>
+                  <Link to="?currency=aud" className="navbar-item">
+                    Australian Dollar
+                  </Link>
                 </div>
               </div>
             </div>

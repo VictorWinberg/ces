@@ -393,12 +393,12 @@ class ParcelShipping extends Component {
             this.renderResults({
               cheap: {
                 time: "~ 7 days",
-                price: "100 $",
+                price: "100",
                 trackingId: "4413-CHEAP-5613"
               },
               fast: {
                 time: "~ 2 days",
-                price: "280 $",
+                price: "280",
                 trackingId: "9572-FAST-1742"
               }
             })}

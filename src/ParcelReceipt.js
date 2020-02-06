@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import QRCode from "qrcode.react";
 import ReactToPrint from "react-to-print";
+import money from "money";
+import qs from "query-string";
 
 class ParcelReceipt extends Component {
   constructor(props) {
     super(props);
+
     this.state = props.location.state || {};
+    this.currency = this.currency.bind(this);
   }
 
   renderOption({ title, subtitle, classType }) {
@@ -17,6 +21,18 @@ class ParcelReceipt extends Component {
         </article>
       </div>
     );
+  }
+
+  currency() {
+    const defaultCurrency = "USD";
+    if (!this.state.price) return null;
+    const { currency } = qs.parse(this.props.location.search);
+    if (!currency) return `${this.state.price} ${defaultCurrency}`;
+
+    const price = money(this.state.price)
+      .from(defaultCurrency)
+      .to(currency.toUpperCase());
+    return `${Math.round(price)} ${currency.toUpperCase()}`;
   }
 
   render() {
@@ -62,7 +78,7 @@ class ParcelReceipt extends Component {
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Price <br />
-              <span className="is-size-3">{this.state.price}</span>
+              <span className="is-size-3">{this.currency()}</span>
             </div>
           </div>
 
