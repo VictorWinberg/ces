@@ -20,6 +20,8 @@ class ParcelShipping extends Component {
       isCautious: false,
       isRefrigerated: false,
       loading: false,
+      initialLoading: true,
+      cities: [],
       hasResult: false,
       hasNoResult: false
     };
@@ -27,6 +29,18 @@ class ParcelShipping extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    fetch("/api/cities")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          initialLoading: false,
+          cities: json.map(({ name }) => name)
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   handleChange({ target }) {
@@ -144,7 +158,11 @@ class ParcelShipping extends Component {
             </div>
             <div className="field-body">
               <div className="field">
-                <div className="select is-fullwidth">
+                <div
+                  className={`select is-fullwidth ${
+                    this.state.initialLoading ? "is-loading" : ""
+                  }`}
+                >
                   <select
                     name="from"
                     required
@@ -152,25 +170,9 @@ class ParcelShipping extends Component {
                     onChange={this.handleChange}
                   >
                     <option value="">Select city</option>
-                    <option>Abidjan</option>
-                    <option>Accra</option>
-                    <option>Alexandria</option>
-                    <option>Algiers</option>
-                    <option>Cairo</option>
-                    <option>Cape</option>
-                    <option>Casablanca</option>
-                    <option>Copenhagen</option>
-                    <option>Dar</option>
-                    <option>Douala</option>
-                    <option>Giza</option>
-                    <option>Johannesburg</option>
-                    <option>Kano</option>
-                    <option>Kinshasa</option>
-                    <option>Kumasi</option>
-                    <option>Lagos</option>
-                    <option>Luanda</option>
-                    <option>Nairobi</option>
-                    <option>Stockholm</option>
+                    {this.state.cities.map(city => (
+                      <option key={city}>{city}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -178,7 +180,11 @@ class ParcelShipping extends Component {
                 <label className="label">To</label>
               </div>
               <div className="field-body">
-                <div className="select is-fullwidth">
+                <div
+                  className={`select is-fullwidth ${
+                    this.state.initialLoading ? "is-loading" : ""
+                  }`}
+                >
                   <select
                     name="to"
                     required
@@ -186,25 +192,9 @@ class ParcelShipping extends Component {
                     onChange={this.handleChange}
                   >
                     <option value="">Select city</option>
-                    <option>Abidjan</option>
-                    <option>Accra</option>
-                    <option>Alexandria</option>
-                    <option>Algiers</option>
-                    <option>Cairo</option>
-                    <option>Cape</option>
-                    <option>Casablanca</option>
-                    <option>Copenhagen</option>
-                    <option>Dar</option>
-                    <option>Douala</option>
-                    <option>Giza</option>
-                    <option>Johannesburg</option>
-                    <option>Kano</option>
-                    <option>Kinshasa</option>
-                    <option>Kumasi</option>
-                    <option>Lagos</option>
-                    <option>Luanda</option>
-                    <option>Nairobi</option>
-                    <option>Stockholm</option>
+                    {this.state.cities.map(city => (
+                      <option key={city}>{city}</option>
+                    ))}
                   </select>
                 </div>
               </div>
