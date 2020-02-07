@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import QRCode from "qrcode.react";
 import ReactToPrint from "react-to-print";
 import money from "money";
@@ -82,7 +83,38 @@ class ParcelReceipt extends Component {
               <span className="is-size-3">{this.state.time}</span>
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
-              Price <br />
+              Price
+              <div className="navbar-item has-dropdown is-hoverable is-inline-block">
+                <a className="navbar-link">&nbsp;</a>
+
+                <div className="navbar-dropdown">
+                  <Link to="?currency=usd" className="navbar-item">
+                    US Dollar
+                  </Link>
+                  <Link to="?currency=gbp" className="navbar-item">
+                    British Pund
+                  </Link>
+                  <Link to="?currency=eur" className="navbar-item">
+                    Euro
+                  </Link>
+                  <Link to="?currency=dkk" className="navbar-item">
+                    Danish Krone
+                  </Link>
+                  <Link to="?currency=sek" className="navbar-item">
+                    Swedish Krone
+                  </Link>
+                  <Link to="?currency=nok" className="navbar-item">
+                    Norwegian Krone
+                  </Link>
+                  <Link to="?currency=aed" className="navbar-item">
+                    Emirati Dirhams
+                  </Link>
+                  <Link to="?currency=aud" className="navbar-item">
+                    Australian Dollar
+                  </Link>
+                </div>
+              </div>
+              <br />
               <span className="is-size-3">{this.currency()}</span>
             </div>
           </div>
