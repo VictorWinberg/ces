@@ -17,9 +17,9 @@ class Navbar extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <span className="navbar-item">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
+            <div className="media">
+              <div className="media-left">
+                <figure className="image is-48x48">
                   <img
                     src="/logo.png"
                     alt="Parcel Delivery IT Solution"
@@ -29,9 +29,9 @@ class Navbar extends Component {
                   />
                 </figure>
               </div>
-              <div class="media-content">
-                <p class="title is-5">East India Trading</p>
-                <p class="subtitle is-7">Parcel Delivery IT Solution</p>
+              <div className="media-content" style={{ overflow: "hidden" }}>
+                <p className="title is-5">East India Trading</p>
+                <p className="subtitle is-7">Parcel Delivery IT Solution</p>
               </div>
             </div>
           </span>
@@ -87,6 +87,71 @@ class Navbar extends Component {
                   >
                     English
                   </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="navbar-item is-hidden-desktop">
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link">Currency</a>
+
+                <div className="navbar-dropdown">
+                  <Link
+                    to="?currency=usd"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    US Dollar
+                  </Link>
+                  <Link
+                    to="?currency=gbp"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    British Pund
+                  </Link>
+                  <Link
+                    to="?currency=eur"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Euro
+                  </Link>
+                  <Link
+                    to="?currency=dkk"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Danish Krone
+                  </Link>
+                  <Link
+                    to="?currency=sek"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Swedish Krone
+                  </Link>
+                  <Link
+                    to="?currency=nok"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Norwegian Krone
+                  </Link>
+                  <Link
+                    to="?currency=aed"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Emirati Dirhams
+                  </Link>
+                  <Link
+                    to="?currency=aud"
+                    className="navbar-item"
+                    onClick={() => this.toggleActive()}
+                  >
+                    Australian Dollar
+                  </Link>
                 </div>
               </div>
             </div>

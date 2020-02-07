@@ -172,7 +172,7 @@ class TracknTraceShow extends Component {
           </div>
 
           <h4 className="is-size-4">Delivery Route</h4>
-          <table className="table is-size-4">
+          <table className="table is-size-4 is-size-6-mobile is-fullwidth">
             <tbody>{this.state.routes.map(this.renderRoute)}</tbody>
           </table>
 

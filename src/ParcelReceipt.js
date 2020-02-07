@@ -84,7 +84,7 @@ class ParcelReceipt extends Component {
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Price
-              <div className="navbar-item has-dropdown is-hoverable is-inline-block">
+              <div className="navbar-item has-dropdown is-hoverable is-inline-block is-hidden-tablet-only is-hidden-mobile">
                 <a className="navbar-link">&nbsp;</a>
 
                 <div className="navbar-dropdown">
@@ -170,7 +170,7 @@ class ParcelReceipt extends Component {
           </div>
 
           <h4 className="is-size-4 is-hidden-print">Planned Route</h4>
-          <table className="table is-size-4 is-hidden-print">
+          <table className="table is-size-4 is-size-6-mobile is-hidden-print is-fullwidth">
             <tbody>
               <tr>
                 <td className="has-text-weight-light">Truck </td>
