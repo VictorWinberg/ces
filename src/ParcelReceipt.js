@@ -137,7 +137,7 @@ class ParcelReceipt extends Component {
               })}
           </div>
 
-          <h4 className="is-size-4 is-hidden-print">Route</h4>
+          <h4 className="is-size-4 is-hidden-print">Planned Route</h4>
           <table className="table is-size-4 is-hidden-print">
             <tbody>
               <tr>
