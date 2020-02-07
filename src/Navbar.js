@@ -17,7 +17,23 @@ class Navbar extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <span className="navbar-item">
-            <b>Parcel Delivery IT Solution</b>
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="/logo.png"
+                    alt="Parcel Delivery IT Solution"
+                    style={{ maxHeight: "none" }}
+                    width="64"
+                    height="64"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-5">East India Trading</p>
+                <p class="subtitle is-7">Parcel Delivery IT Solution</p>
+              </div>
+            </div>
           </span>
 
           <a
