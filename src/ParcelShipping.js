@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+const generateTrackingId = type => {
+  function pad(n, width, z) {
+    z = z || "0";
+    n = n + "";
+    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+  }
+  const random = () => pad(Math.floor(Math.random() * 10000), 4);
+  return [random(), type, random()].join("-");
+};
+
 class ParcelShipping extends Component {
   constructor(props) {
     super(props);
@@ -421,14 +431,14 @@ class ParcelShipping extends Component {
           {this.state.hasResult &&
             this.renderResults({
               cheap: {
-                time: "~ 7 days",
-                price: "100",
-                trackingId: "4413-CHEAP-5613"
+                time: `~ ${Math.floor(Math.random() * (10 - 5) + 5)} days`,
+                price: `${Math.floor(Math.random() * (200 - 50) + 50)}`,
+                trackingId: generateTrackingId("CHEAP")
               },
               fast: {
-                time: "~ 2 days",
-                price: "280",
-                trackingId: "9572-FAST-1742"
+                time: `~ ${Math.floor(Math.random() * (5 - 2) + 2)} days`,
+                price: `${Math.floor(Math.random() * (500 - 200) + 200)}`,
+                trackingId: generateTrackingId("FAST")
               }
             })}
         </form>
