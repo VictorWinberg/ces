@@ -95,7 +95,7 @@ class ParcelShipping extends Component {
       result: {}
     });
     setTimeout(() => {
-      const notPossible = ["Stockholm", "Copenhagen"];
+      const notPossible = ["WESTPORT"];
       if (
         notPossible.includes(this.state.from) ||
         notPossible.includes(this.state.to)
@@ -217,6 +217,7 @@ class ParcelShipping extends Component {
                     {this.state.cities.map(city => (
                       <option key={city}>{city}</option>
                     ))}
+                    <option>WESTPORT</option>
                   </select>
                 </div>
               </div>
@@ -239,6 +240,7 @@ class ParcelShipping extends Component {
                     {this.state.cities.map(city => (
                       <option key={city}>{city}</option>
                     ))}
+                    <option>WESTPORT</option>
                   </select>
                 </div>
               </div>
@@ -455,7 +457,7 @@ class ParcelShipping extends Component {
                 className={`button is-primary ${
                   this.state.loading ? "is-loading" : ""
                 } `}
-                disabled={this.state.hasResult}
+                disabled={this.state.hasResult || this.state.hasNoResult}
                 type="submit"
               >
                 Find
