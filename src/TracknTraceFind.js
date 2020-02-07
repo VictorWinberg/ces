@@ -18,7 +18,7 @@ class TracknTraceFind extends Component {
 
   handleChange({ target }) {
     this.setState({
-      [target.name]: target.value,
+      [target.name]: target.value.toUpperCase(),
       hasResult: false,
       hasNoResult: false
     });
@@ -28,8 +28,12 @@ class TracknTraceFind extends Component {
     console.log("TracknTraceFind", JSON.parse(JSON.stringify(this.state)));
     this.setState({ loading: true, hasResult: false, hasNoResult: false });
     setTimeout(() => {
-      const notPossible = ["error", "42", "donald trump", "jan zubac"];
-      if (notPossible.includes(this.state.id.toLowerCase())) {
+      const notPossible = ["error", "42", "trump", "jan", "zubac", "walk"];
+      if (
+        notPossible.some(incorrect =>
+          this.state.id.toLowerCase().includes(incorrect)
+        )
+      ) {
         this.setState({ loading: false, hasNoResult: true });
       } else {
         this.setState({ loading: false, hasResult: true });
