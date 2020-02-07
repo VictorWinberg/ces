@@ -107,12 +107,10 @@ class ParcelShipping extends Component {
         const result = {
           cheap: {
             ...json.cheap,
-            time: json.cheap.duration,
             trackingId: generateTrackingId("CHEAP")
           },
           fast: {
             ...json.fast,
-            time: json.fast.duration,
             trackingId: generateTrackingId("FAST")
           }
         };
@@ -162,7 +160,7 @@ class ParcelShipping extends Component {
                   </header>
                   <div className="card-content">
                     <div className="content">
-                      Delivery time: {fast.time}
+                      Delivery time: {fast.duration} hours
                       <br />
                       Price: {this.currency(fast.price)}
                     </div>
@@ -183,7 +181,7 @@ class ParcelShipping extends Component {
                   </header>
                   <div className="card-content">
                     <div className="content">
-                      Delivery time: {cheap.time}
+                      Delivery time: {cheap.duration} hours
                       <br />
                       Price: {this.currency(cheap.price)}
                     </div>

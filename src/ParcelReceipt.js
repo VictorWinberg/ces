@@ -101,7 +101,7 @@ class ParcelReceipt extends Component {
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Time <br />
-              <span className="is-size-3">{this.state.time}</span>
+              <span className="is-size-3">{this.state.duration} hours</span>
             </div>
             <div className="column is-one-quarter-desktop is-half-tablet is-full-mobile is-hidden-print">
               Price
