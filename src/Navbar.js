@@ -91,7 +91,7 @@ class Navbar extends Component {
               </div>
             </div>
 
-            <div className="navbar-item is-hidden-desktop">
+            <div className="navbar-item">
               <div className="navbar-item has-dropdown is-hoverable">
                 <a className="navbar-link">Currency</a>
 

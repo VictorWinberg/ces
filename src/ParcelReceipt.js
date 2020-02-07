@@ -11,7 +11,14 @@ class ParcelReceipt extends Component {
     super(props);
 
     this.state = props.location.state || {};
+    this.state.initialLoading = true;
     this.currency = this.currency.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ initialLoading: false });
+    }, 500);
   }
 
   renderOption({ title, subtitle, classType }) {
@@ -40,6 +47,19 @@ class ParcelReceipt extends Component {
   render() {
     if (Object.keys(this.state).length === 0) {
       return <Redirect to="/parcel-shipping" />;
+    }
+
+    if (this.state.initialLoading) {
+      return (
+        <div className="hero-body" ref={el => (this.printComponentRef = el)}>
+          <div className="container">
+            <h1 className="title is-size-1-tablet is-size-3-mobile has-text-centered-mobile">
+              Parcel Receipt
+            </h1>
+            <h4 className="is-size-4">Generating...</h4>
+          </div>
+        </div>
+      );
     }
 
     return (

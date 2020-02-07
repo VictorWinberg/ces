@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import money from "money";
+import qs from "query-string";
 
 const generateTrackingId = type => {
   function pad(n, width, z) {
@@ -31,6 +33,7 @@ class ParcelShipping extends Component {
       isRefrigerated: false,
       loading: false,
       initialLoading: true,
+      result: {},
       cities: [],
       hasResult: false,
       hasNoResult: false
@@ -53,11 +56,24 @@ class ParcelShipping extends Component {
       .catch(err => console.log(err));
   }
 
+  currency(price) {
+    const defaultCurrency = "USD";
+    if (!price) return null;
+    const { currency } = qs.parse(this.props.location.search);
+    if (!currency) return `${price} ${defaultCurrency}`;
+
+    const calcPrice = money(price)
+      .from(defaultCurrency)
+      .to(currency.toUpperCase());
+    return `${Math.round(calcPrice)} ${currency.toUpperCase()}`;
+  }
+
   handleChange({ target }) {
     this.setState({
       [target.name]: target.value,
       hasResult: false,
-      hasNoResult: false
+      hasNoResult: false,
+      result: {}
     });
   }
 
@@ -65,13 +81,19 @@ class ParcelShipping extends Component {
     this.setState({
       [target.name]: !this.state[target.name],
       hasResult: false,
-      hasNoResult: false
+      hasNoResult: false,
+      result: {}
     });
   }
 
   handleSubmit(event) {
     console.log("ParcelShipping", JSON.parse(JSON.stringify(this.state)));
-    this.setState({ loading: true, hasResult: false, hasNoResult: false });
+    this.setState({
+      loading: true,
+      hasResult: false,
+      hasNoResult: false,
+      result: {}
+    });
     setTimeout(() => {
       const notPossible = ["Stockholm", "Copenhagen"];
       if (
@@ -80,7 +102,19 @@ class ParcelShipping extends Component {
       ) {
         this.setState({ loading: false, hasNoResult: true });
       } else {
-        this.setState({ loading: false, hasResult: true });
+        const result = {
+          cheap: {
+            time: `~ ${Math.floor(Math.random() * (10 - 5) + 5)} days`,
+            price: Math.floor(Math.random() * (200 - 50) + 50),
+            trackingId: generateTrackingId("CHEAP")
+          },
+          fast: {
+            time: `~ ${Math.floor(Math.random() * (5 - 2) + 2)} days`,
+            price: Math.floor(Math.random() * (500 - 200) + 200),
+            trackingId: generateTrackingId("FAST")
+          }
+        };
+        this.setState({ loading: false, hasResult: true, result });
       }
     }, 500);
     event.preventDefault();
@@ -124,7 +158,7 @@ class ParcelShipping extends Component {
                     <div className="content">
                       Delivery time: {fast.time}
                       <br />
-                      Price: {fast.price}
+                      Price: {this.currency(fast.price)}
                     </div>
                   </div>
                 </div>
@@ -145,7 +179,7 @@ class ParcelShipping extends Component {
                     <div className="content">
                       Delivery time: {cheap.time}
                       <br />
-                      Price: {cheap.price}
+                      Price: {this.currency(cheap.price)}
                     </div>
                   </div>
                 </div>
@@ -428,19 +462,7 @@ class ParcelShipping extends Component {
             </p>
           </div>
           {this.state.hasNoResult && this.renderNoResults()}
-          {this.state.hasResult &&
-            this.renderResults({
-              cheap: {
-                time: `~ ${Math.floor(Math.random() * (10 - 5) + 5)} days`,
-                price: `${Math.floor(Math.random() * (200 - 50) + 50)}`,
-                trackingId: generateTrackingId("CHEAP")
-              },
-              fast: {
-                time: `~ ${Math.floor(Math.random() * (5 - 2) + 2)} days`,
-                price: `${Math.floor(Math.random() * (500 - 200) + 200)}`,
-                trackingId: generateTrackingId("FAST")
-              }
-            })}
+          {this.state.hasResult && this.renderResults(this.state.result)}
         </form>
       </div>
     );
