@@ -37,7 +37,7 @@ class ParcelShipping extends Component {
       .then(json => {
         this.setState({
           initialLoading: false,
-          cities: json.map(({ name }) => name)
+          cities: json.map(({ name }) => name).sort()
         });
       })
       .catch(err => console.log(err));

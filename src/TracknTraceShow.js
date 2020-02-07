@@ -5,7 +5,13 @@ class TracknTraceShow extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { id: props.match.params.id, city: "", routes: [] };
+    this.state = {
+      id: props.match.params.id,
+      city: "",
+      cities: [],
+      routes: [],
+      initialLoading: true
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleArrived = this.handleArrived.bind(this);
@@ -13,6 +19,15 @@ class TracknTraceShow extends Component {
   }
 
   componentDidMount() {
+    fetch("/api/cities")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          initialLoading: false,
+          cities: json.map(({ name }) => name).sort()
+        });
+      })
+      .catch(err => console.log(err));
     setTimeout(() => {
       this.setState({
         routes: [
@@ -92,25 +107,9 @@ class TracknTraceShow extends Component {
                   onChange={this.handleChange}
                 >
                   <option value="">Select city</option>
-                  <option>Abidjan</option>
-                  <option>Accra</option>
-                  <option>Alexandria</option>
-                  <option>Algiers</option>
-                  <option>Cairo</option>
-                  <option>Cape</option>
-                  <option>Casablanca</option>
-                  <option>Copenhagen</option>
-                  <option>Dar</option>
-                  <option>Douala</option>
-                  <option>Giza</option>
-                  <option>Johannesburg</option>
-                  <option>Kano</option>
-                  <option>Kinshasa</option>
-                  <option>Kumasi</option>
-                  <option>Lagos</option>
-                  <option>Luanda</option>
-                  <option>Nairobi</option>
-                  <option>Stockholm</option>
+                  {this.state.cities.map(city => (
+                    <option key={city}>{city}</option>
+                  ))}
                 </select>
               </span>
             </p>
