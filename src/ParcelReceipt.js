@@ -12,6 +12,7 @@ class ParcelReceipt extends Component {
 
     this.state = props.location.state || {};
     this.state.initialLoading = true;
+
     this.currency = this.currency.bind(this);
   }
 
@@ -192,24 +193,21 @@ class ParcelReceipt extends Component {
           <h4 className="is-size-4 is-hidden-print">Planned Route</h4>
           <table className="table is-size-4 is-size-6-mobile is-hidden-print is-fullwidth">
             <tbody>
-              <tr>
-                <td className="has-text-weight-light">Truck </td>
-                <td>{this.state.from}</td>
-                <td className="has-text-weight-light is-hidden-mobile">-></td>
-                <td>TIMBUKTU</td>
-              </tr>
-              <tr>
-                <td className="has-text-weight-light">Flight </td>
-                <td>TIMBUKTU</td>
-                <td className="has-text-weight-light is-hidden-mobile">-></td>
-                <td>WADAI</td>
-              </tr>
-              <tr>
-                <td className="has-text-weight-light">Boat </td>
-                <td>WADAI</td>
-                <td className="has-text-weight-light is-hidden-mobile">-></td>
-                <td>{this.state.to}</td>
-              </tr>
+              {this.state.route.map((from, id, routes) => {
+                const to = routes[id + 1];
+                if (routes.length - 1 === id) return null;
+
+                return (
+                  <tr key={id}>
+                    <td className="has-text-weight-light">BOAT </td>
+                    <td>{from}</td>
+                    <td className="has-text-weight-light is-hidden-mobile">
+                      ->
+                    </td>
+                    <td>{to}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 

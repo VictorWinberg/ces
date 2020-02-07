@@ -57,7 +57,7 @@ app.get("/api/cities", async (req, res) => {
     const response = await fetch(
       "https://wa-eitpl.azurewebsites.net/api/cities",
       {
-        timeout: 1000
+        timeout: 2000
       }
     );
     const json = await response.json();
@@ -70,25 +70,39 @@ app.get("/api/cities", async (req, res) => {
   res.send(cities);
 });
 
-app.get("/api/routes", async (req, res) => {
-  let routes = [];
+app.post("/api/routes", async (req, res) => {
+  const { from, to } = req.body;
+  console.log(from, to);
+
+  let routes = {
+    fast: {
+      price: 200,
+      duration: 30,
+      route: ["DAKAR", "DE KANARISKE ØER", "TANGER", "TUNIS", "CAIRO"]
+    },
+    cheap: {
+      price: 50,
+      duration: 300,
+      route: ["DAKAR", "DE KANARISKE ØER", "TANGER", "TUNIS", "CAIRO"]
+    }
+  };
 
   try {
     const response = await fetch(
-      "https://wa-eitpl.azurewebsites.net/api/routes",
+      `https://wa-eitpl.azurewebsites.net/api/Calculator?from=${from}&to=${to}`,
       {
-        method: "post",
-        body: JSON.stringify({}),
+        method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        timeout: 1000
+        body: "{}",
+        timeout: 3000
       }
     );
-    const json = await response.json();
 
-    if (json.routes && json.routes.length > 0) {
-      routes = json.routes;
+    const json = await response.json();
+    if (json.fast && json.cheap) {
+      routes = json;
     }
   } catch (error) {
     console.error(error);

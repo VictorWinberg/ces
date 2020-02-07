@@ -94,29 +94,35 @@ class ParcelShipping extends Component {
       hasNoResult: false,
       result: {}
     });
-    setTimeout(() => {
-      const notPossible = ["WESTPORT"];
-      if (
-        notPossible.includes(this.state.from) ||
-        notPossible.includes(this.state.to)
-      ) {
-        this.setState({ loading: false, hasNoResult: true });
-      } else {
+
+    fetch("/api/routes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(json => {
         const result = {
           cheap: {
-            time: `~ ${Math.floor(Math.random() * (10 - 5) + 5)} days`,
-            price: Math.floor(Math.random() * (200 - 50) + 50),
+            ...json.cheap,
+            time: json.cheap.duration,
             trackingId: generateTrackingId("CHEAP")
           },
           fast: {
-            time: `~ ${Math.floor(Math.random() * (5 - 2) + 2)} days`,
-            price: Math.floor(Math.random() * (500 - 200) + 200),
+            ...json.fast,
+            time: json.fast.duration,
             trackingId: generateTrackingId("FAST")
           }
         };
-        this.setState({ loading: false, hasResult: true, result });
-      }
-    }, 500);
+        if (json.fast.price) {
+          this.setState({ loading: false, hasResult: true, result });
+        } else {
+          this.setState({ loading: false, hasNoResult: true });
+        }
+      })
+      .catch(err => console.error(err));
     event.preventDefault();
   }
 
