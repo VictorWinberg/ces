@@ -106,6 +106,7 @@ class TracknTraceFind extends Component {
                     required
                     className="input"
                     type="text"
+                    maxLength="32"
                     placeholder="E.g. 9572-FAST-1742"
                     value={this.state.id}
                     onChange={this.handleChange}

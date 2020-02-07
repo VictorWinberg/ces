@@ -213,7 +213,7 @@ class ParcelShipping extends Component {
                     className="slider is-fullwidth"
                     step="1"
                     min="0"
-                    max="100"
+                    max="1000000"
                     type="range"
                     value={this.state.weight}
                     onChange={this.handleChange}
@@ -251,6 +251,7 @@ class ParcelShipping extends Component {
                     className="input"
                     type="number"
                     min="0"
+                    max="1000000"
                     placeholder="Height"
                     value={this.state.height}
                     onChange={this.handleChange}
@@ -278,6 +279,7 @@ class ParcelShipping extends Component {
                     className="input"
                     type="number"
                     min="0"
+                    max="1000000"
                     placeholder="Width"
                     value={this.state.width}
                     onChange={this.handleChange}
@@ -305,6 +307,7 @@ class ParcelShipping extends Component {
                     className="input"
                     type="number"
                     min="0"
+                    max="1000000"
                     placeholder="Depth"
                     value={this.state.depth}
                     onChange={this.handleChange}
