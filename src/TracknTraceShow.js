@@ -17,18 +17,18 @@ class TracknTraceShow extends Component {
       this.setState({
         routes: [
           {
-            city: "Kisumu",
-            date: new Date(new Date().getTime() - 200001337).toLocaleString(),
+            city: "WADAI",
+            date: new Date(new Date().getTime() - 300006969).toLocaleString(),
             status: "Arrived"
           },
           {
-            city: "Cairo",
-            date: new Date(new Date().getTime() - 300006969).toLocaleString(),
+            city: "TIMBUKTU",
+            date: new Date(new Date().getTime() - 600004242).toLocaleString(),
             status: "Sent"
           },
           {
-            city: "Dakar",
-            date: new Date(new Date().getTime() - 600004242).toLocaleString(),
+            city: "KAPSTADEN",
+            date: new Date(new Date().getTime() - 200001337).toLocaleString(),
             status: "Sent"
           }
         ]
@@ -62,7 +62,7 @@ class TracknTraceShow extends Component {
 
     this.setState({ loading: true });
     setTimeout(() => {
-      this.setState({ loading: false, routes });
+      this.setState({ loading: false, city: "", routes });
     }, 500);
   }
 

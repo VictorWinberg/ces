@@ -144,17 +144,17 @@ class ParcelReceipt extends Component {
                 <td className="has-text-weight-light">Truck </td>
                 <td>{this.state.from}</td>
                 <td className="has-text-weight-light is-hidden-mobile">-></td>
-                <td>Kisumu</td>
+                <td>TIMBUKTU</td>
               </tr>
               <tr>
                 <td className="has-text-weight-light">Flight </td>
-                <td>Kisumu</td>
+                <td>TIMBUKTU</td>
                 <td className="has-text-weight-light is-hidden-mobile">-></td>
-                <td>Dakar</td>
+                <td>WADAI</td>
               </tr>
               <tr>
                 <td className="has-text-weight-light">Boat </td>
-                <td>Dakar</td>
+                <td>WADAI</td>
                 <td className="has-text-weight-light is-hidden-mobile">-></td>
                 <td>{this.state.to}</td>
               </tr>

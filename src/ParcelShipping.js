@@ -213,7 +213,7 @@ class ParcelShipping extends Component {
                     className="slider is-fullwidth"
                     step="1"
                     min="0"
-                    max="1000000"
+                    max="100"
                     type="range"
                     value={this.state.weight}
                     onChange={this.handleChange}
@@ -223,7 +223,9 @@ class ParcelShipping extends Component {
                   <input
                     name="weight"
                     required
-                    type="text"
+                    type="number"
+                    min="0"
+                    max="1000000"
                     className="button is-dark"
                     placeholder="N/A"
                     style={{ maxWidth: "5rem" }}
