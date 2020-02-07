@@ -454,7 +454,8 @@ class ParcelShipping extends Component {
               <button
                 className={`button is-primary ${
                   this.state.loading ? "is-loading" : ""
-                }`}
+                } `}
+                disabled={this.state.hasResult}
                 type="submit"
               >
                 Find
