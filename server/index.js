@@ -95,7 +95,7 @@ app.post("/api/routes", async (req, res) => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: "{}",
+        body: JSON.stringify({ ...req.body, weightKg: req.body.weight }),
         timeout: 3000
       }
     );
