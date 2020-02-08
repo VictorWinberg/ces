@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import money from "money";
-
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
 import "bulma/css/bulma.min.css";
 import "bulma-slider/dist/css/bulma-slider.min.css";
 import "bulma-checkradio/dist/css/bulma-checkradio.min.css";
 import "animate.css";
+
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import "./index.css";
 
 fetch(
   "https://openexchangerates.org/api/latest.json?app_id=df63dd77817542ee95449bb3f0517029"

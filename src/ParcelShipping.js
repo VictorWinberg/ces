@@ -126,11 +126,11 @@ class ParcelShipping extends Component {
 
   renderNoResults() {
     return (
-      <div className="field is-horizontal animated bounceInRight">
+      <div className="field is-horizontal">
         <div className="field-label"></div>
         <div className="field-body">
           <div className="container columns is-fullwidth">
-            <div className="column">
+            <div className="column fadeInRightBig faster">
               <h4 className="is-size-4">
                 No possible parcel route with given information found
               </h4>
@@ -143,11 +143,11 @@ class ParcelShipping extends Component {
 
   renderResults({ cheap, fast }) {
     return (
-      <div className="field is-horizontal animated bounceInRight">
+      <div className="field is-horizontal">
         <div className="field-label"></div>
         <div className="field-body">
           <div className="container columns is-fullwidth">
-            <div className="column is-half">
+            <div className="column is-half animated fadeInRightBig faster">
               <Link
                 to={{
                   pathname: "/parcel-receipt",
@@ -168,7 +168,7 @@ class ParcelShipping extends Component {
                 </div>
               </Link>
             </div>
-            <div className="column is-half">
+            <div className="column is-half animated fadeInRightBig faster delay-150ms">
               <Link
                 to={{
                   pathname: "/parcel-receipt",
