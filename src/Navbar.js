@@ -21,7 +21,7 @@ class Navbar extends Component {
               <div className="media-left">
                 <figure className="image is-48x48">
                   <img
-                    src="/logo.png"
+                    src={`${process.env.REACT_APP_PUBLIC_URL}/logo.png`}
                     alt="Parcel Delivery IT Solution"
                     style={{ maxHeight: "none" }}
                     width="64"

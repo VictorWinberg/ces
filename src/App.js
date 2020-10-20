@@ -14,7 +14,7 @@ import TracknTraceFind from "./TracknTraceFind";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.REACT_APP_PUBLIC_URL}>
       <Navbar />
       <Switch>
         <Route path="/parcel-shipping" component={ParcelShipping} />
