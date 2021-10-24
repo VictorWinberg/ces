@@ -110,7 +110,11 @@ class TracknTraceShow extends Component {
                   {this.state.cities.map(city => (
                     <option key={city}>{city}</option>
                   ))}
-                  <option>WESTPORT</option>
+                  <option>ADDIS ADEBA</option>
+                  <option>ZANZIBAR</option>
+                  <option>TANGER</option>
+                  <option>TUNIS</option>
+                  <option>CAIRO</option>
                 </select>
               </span>
             </p>
