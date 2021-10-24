@@ -126,12 +126,14 @@ class ParcelShipping extends Component {
           fast: {
             price: 299,
             duration: 27,
-            route: ["HVALBUGTEN", "OMDURMAN", "CAIRO"]
+            route: ["HVALBUGTEN", "OMDURMAN", "CAIRO"],
+            trackingId: generateTrackingId("CHEAP")
           },
           cheap: {
             price: 48,
             duration: 420,
-            route: ["ADDIS ADEBA", "ZANZIBAR", "TANGER", "TUNIS", "CAIRO"]
+            route: ["ADDIS ADEBA", "ZANZIBAR", "TANGER", "TUNIS", "CAIRO"],
+            trackingId: generateTrackingId("FAST")
           }
         };
         this.setState({ loading: false, hasResult: true, result });
